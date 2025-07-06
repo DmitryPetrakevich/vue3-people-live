@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Logs
 logs
 *.log
@@ -448,4 +448,3 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
->>>>>>> 572a0cd34d4273c7bbf0d71708b750130c616139

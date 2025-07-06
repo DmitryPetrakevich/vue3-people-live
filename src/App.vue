@@ -1,7 +1,7 @@
 <template>
-<PageHeader />
+<PageHeader :activeTab="activeTab" @setTab="(value) => setTab(value)" />
 
-<AppHome />
+<AppHome v-if="activeTab === 'home'" />
 
 
 </template>
@@ -19,6 +19,16 @@ export default {
     SvgLogo,
 
   },
+    data() {
+    return {
+      activeTab: "home"
+    };
+  },
+    methods: {
+    setTab(tab) {
+      this.activeTab = tab;
+    }
+  }
 }
 
 </script>

@@ -16,7 +16,7 @@
         type="button" 
         class="page-header__nav-item"
         :class="{ 'page-header__nav-item--active': activeTab === 'home'}"
-        @click="setTabs('home')"
+        @click="setTab('home')"
         >
         Главная
       </button>
@@ -25,7 +25,7 @@
         type="button" 
         class="page-header__nav-item"
         :class="{ 'page-header__nav-item--active': activeTab === 'rules'}"
-        @click="setTabs('rules')"
+        @click="setTab('rules')"
         >
         Правила
       </button>
@@ -34,7 +34,7 @@
         type="button" 
         class="page-header__nav-item"
         :class="{ 'page-header__nav-item--active': activeTab === 'contacts'}"
-        @click="setTabs('contacts')"
+        @click="setTab('contacts')"
         >
         Контакты
       </button>
@@ -50,14 +50,16 @@ export default {
   components: {
     SvgLogo,
   },
+  emits: ["setTab"],
+  props: {
+    activeTab: "home"
+  },
   data() {
-    return {
-      activeTab: "home"
-    };
+    return { };
   },
   methods: {
-    setTabs(tab) {
-      this.activeTab = tab;
+    setTab(tab) {
+      this.$emit("setTab", tab);
     }
   }
 
