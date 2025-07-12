@@ -12,32 +12,17 @@
       </div>
 
       <nav class="page-header__nav">
-        <button 
-        type="button" 
+        <RouterLink
+        v-for="tab in tabs"
+        :key="tab.key"
+        type="button"
         class="page-header__nav-item"
-        :class="{ 'page-header__nav-item--active': activeTab === 'home'}"
-        @click="setTab('home')"
+        :to="tab.key"
         >
-        Главная
-      </button>
 
-        <button 
-        type="button" 
-        class="page-header__nav-item"
-        :class="{ 'page-header__nav-item--active': activeTab === 'rules'}"
-        @click="setTab('rules')"
-        >
-        Правила
-      </button>
-
-        <button 
-        type="button" 
-        class="page-header__nav-item"
-        :class="{ 'page-header__nav-item--active': activeTab === 'contacts'}"
-        @click="setTab('contacts')"
-        >
-        Контакты
-      </button>
+        {{ tab.title }}
+        </RouterLink>
+      
       </nav>
     </div>
   </header>
@@ -55,7 +40,23 @@ export default {
     activeTab: "home"
   },
   data() {
-    return { };
+    return {
+      tabs: [
+        {
+          title: "Главная",
+          key: "/",
+        },
+        {
+          title: "Правила",
+          key: "/rules",
+        },
+        {
+          title: "Контакты",
+          key: "/contacts",
+        },
+    ],
+
+    }
   },
   methods: {
     setTab(tab) {
